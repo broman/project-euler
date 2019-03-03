@@ -4,7 +4,7 @@
 #include <stdbool.h>
 
 bool isPrime(int n) {
-	// only halfway naive -- you can iterate up o sqrt(n) for the same result
+	// only halfway naive, you can iterate up o sqrt(n) for the same result
 	for(int i = 2; i < (int) (sqrt(n) + 1); ++i)
 		if(n % i == 0) return false;
 	return true;
