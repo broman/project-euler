@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <limits.h>
 #include <stdbool.h>
+// What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 
 bool divByAll(int in, int n) {
     for(int i = 1; i <= n; i++) {

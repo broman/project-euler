@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdbool.h>
+// What is the largest prime factor of the number 600851475143 ?
 
 bool isPrime(int in) {
     for(int i = 2; i < in; i++)

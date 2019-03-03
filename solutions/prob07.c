@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <stdbool.h>
+// What is the 10 001st prime number?
 
 bool isPrime(int n) {
 	// only halfway naive, you can iterate up o sqrt(n) for the same result

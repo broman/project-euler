@@ -1,4 +1,5 @@
 #include <stdio.h>
+//By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
 int findFib(int in) {
     // finds the sum of the even fibonacci numbers <= in

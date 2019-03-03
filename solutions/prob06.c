@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+// Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 
 int sumOfSquares(int n) {
     int sum = 0;
