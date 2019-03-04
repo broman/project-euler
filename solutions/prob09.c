@@ -48,19 +48,19 @@ int main() {
     while (!found) {
         int divides = (target - m * m) % m;
         if (!divides) {
-        int a2, b2, c2; 
-        n = (target - m * m) / m;
-        if ( m < n ) break;
-        // Euclidian formula
-        a = m * m - n * n;
-        b = 2 * m * n;
-        c = m * m + n * n;
+            int a2, b2, c2; 
+            n = (target - m * m) / m;
+            if ( m < n ) break;
+            // Euclidian formula
+            a = m * m - n * n;
+            b = 2 * m * n;
+            c = m * m + n * n;
 
-        a2 = a * a;
-        b2 = b * b;
-        c2 = c * c;
+            a2 = a * a;
+            b2 = b * b;
+            c2 = c * c;
 
-        if ((a2 + b2) == c2) found = true;
+            if ((a2 + b2) == c2) found = true;
         }
         m--; 
     }
