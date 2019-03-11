@@ -3,3 +3,6 @@ a.out
 newproblem.py
 *.class
 .vscode/
+bin/
+obj/
+*.csproj
