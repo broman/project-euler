@@ -6,3 +6,5 @@ newproblem.py
 bin/
 obj/
 *.csproj
+*.json
+.vs/
