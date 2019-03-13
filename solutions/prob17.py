@@ -1,0 +1,3 @@
+# One more in Python. This time it's a one-liner! Well, two, if you count the import...
+from num2words import num2words
+print(len("".join([num2words(i) for i in range(1, 1001)]).replace(" ","").replace("-", "")))
