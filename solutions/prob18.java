@@ -36,25 +36,32 @@ public class prob18 {
          * Split the file by each newline, split the line into individaul numbers,
          * and add the parseInt() result to the inner 2D array.
          */
-        List<String> lines = new ArrayList<String>();
-        List<List<Integer>> pyramid = new ArrayList<List<Integer>>();
-        /* Grab input from prob18.txt and convert to array of lines */
-        String dir = System.getProperty("user.dir") + "/solutions/prob18.txt";
-        Scanner s = new Scanner(new File(dir));
-        while(s.hasNextLine()) lines.add(s.nextLine());
-        s.close();
-        /* Split each line of the array, convert to integer, and add to the inner array */
-        for(String line: lines) {
-            List<Integer> inner = new ArrayList<Integer>();
-            String[] split = line.split("\\s+");
-            for(String cell: split) inner.add(Integer.parseInt(cell));
-            pyramid.add(inner);
-        }
+        List<List<Integer>> pyramid = getInput();
         long start = System.nanoTime();
         int max = maxSum(pyramid);
         long end = System.nanoTime();
 
         System.out.printf("The maximum sum is %d, it took %xms\n", max, (end - start) / 100000);
+    }
+
+    private static List<List<Integer>> getInput() throws FileNotFoundException {
+        List<String> lines = new ArrayList<String>();
+        List<List<Integer>> pyramid = new ArrayList<List<Integer>>();
+        /* Grab input from prob18.txt and convert to array of lines */
+        String dir = System.getProperty("user.dir") + "/solutions/prob18.txt";
+        Scanner s = new Scanner(new File(dir));
+        while (s.hasNextLine())
+            lines.add(s.nextLine());
+        s.close();
+        /* Split each line of the array, convert to integer, and add to the inner array */
+        for (String line : lines) {
+            List<Integer> inner = new ArrayList<Integer>();
+            String[] split = line.split("\\s+");
+            for (String cell : split)
+                inner.add(Integer.parseInt(cell));
+            pyramid.add(inner);
+        }
+        return pyramid;
     }
     public static int maxSum(List<List<Integer>> pyramid) {
         /*
