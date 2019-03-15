@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
-
+import java.lang.Math.max;
 // Find the maximum total from top to bottom of the triangle
 
 /*
@@ -39,7 +39,7 @@ public class prob18 {
         List<String> lines = new ArrayList<String>();
         List<List<Integer>> pyramid = new ArrayList<List<Integer>>();
         /* Grab input from prob18.txt and convert to array of lines */
-        String dir = System.getProperty("user.dir") + "\\solutions\\prob18.txt";
+        String dir = System.getProperty("user.dir") + "/solutions/prob18.txt";
         Scanner s = new Scanner(new File(dir));
         while(s.hasNextLine()) lines.add(s.nextLine());
         s.close();
@@ -50,9 +50,29 @@ public class prob18 {
             for(String cell: split) inner.add(Integer.parseInt(cell));
             pyramid.add(inner);
         }
-        System.out.println(maxSum(pyramid));
+        long start = System.nanoTime();
+        int max = maxSum(pyramid);
+        long end = System.nanoTime();
+
+        System.out.printf("The maximum sum is %d, it took %xms\n", max, (end - start) / 100000);
     }
     public static int maxSum(List<List<Integer>> pyramid) {
-        return 0;
+        /*
+         * The "coordinates" to this grid are .get(y).get(x)
+         * To go to the right of (x, y), .get(y+1).get(x+1)
+         * To go to the left  of (x, y), .get(y+1).get(x)
+         * 
+         * Fill an array with the bottom line of values, then simply run the "a + max(b, c)" algorithm
+         * from the bottom up.
+         */
+        int length = pyramid.get(0).size();
+        int[] largest_vals = new int[length];
+        for(int i = 0; i < length; i++) largest_vals[i] = pyramid.get(length - 1).get(i);
+        for(int i = length - 2; i >= 0; i--) {
+            for(int j = 0; j <= i; j++) {
+                largest_vals[j] = pyramid.get(i).get(j) + Math.max(largest_vals[j], largest_vals[j + 1]);
+            }
+        }
+        return largest_vals[0];
     }
 }
