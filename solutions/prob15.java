@@ -4,9 +4,11 @@ public class prob15 {
         new prob15().latticePaths(40, 20);
     }
     public void latticePaths(int n, int k) {
-        // This is actually extremely easy.
-        // Using binomial coeffecients, we can reckon that:
-        // n! / (n-k)!k!
+        /*
+         * This is actually extremely easy.
+         * Using binomial coeffecients, we can reckon that:
+         * n! / (n-k)!k!
+         */
         BigInteger numerator = factorial(BigInteger.valueOf(n));
         BigInteger denominator = factorial(BigInteger.valueOf(n-k))
             .multiply(factorial(BigInteger.valueOf(k)));

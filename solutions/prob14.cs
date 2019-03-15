@@ -1,13 +1,13 @@
 using System; 
 using System.Collections.Generic;
 /*
-Given the following composite function:
-f(n) -> n/2 (n is even)
-f(n) -> 3n + 1 (n is odd)
-Continue the function until f(n) = 1.
-
-Find the value of n under 1000000 that produces the longest chain.
-*/
+ * Given the following composite function:
+ * f(n) -> n/2 (n is even)
+ * f(n) -> 3n + 1 (n is odd)
+ * Continue the function until f(n) = 1.
+ * 
+ * Find the value of n under 1000000 that produces the longest chain.
+ */
 namespace euler {
     class prob14 {
         static void Main(string[] args) {
