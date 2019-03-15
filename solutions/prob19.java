@@ -32,7 +32,8 @@ public class prob19 {
             long start = System.nanoTime();
             int sundays = findSundays(BEGIN, END);
             long end = System.nanoTime();
-            System.out.printf("Sundasy: %d \n Time: %xms\n", sundays, (end - start) / 100000);
+            System.out.printf("Sundays: %d\n", sundays);
+            System.out.println("Time: " + (end - start) / 100000 + "ms");
     }
 
     static int findSundays(int begin, int end) {
@@ -73,7 +74,7 @@ public class prob19 {
                 // 3.
                 dow += MONTHS.get(i);
                 // 4.
-                if(i <= 2) dow--;
+                if(i <= 2 && isLeapYear(begin)) dow--;
                 // 5.
                 dow += begin < 2000? 0 : 6;
                 // 6.
@@ -85,5 +86,12 @@ public class prob19 {
             begin++;
         }
         return sundays;
+    }
+    static boolean isLeapYear(int year) {
+        /* 
+         * A leap year occurs on any year divisible by 4, but
+         * not on a century unless it is divisible by 400. 
+        */
+        return (year % 400 == 0) && year % 4 == 0;
     }
 }
